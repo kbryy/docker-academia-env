@@ -47,7 +47,7 @@ RUN apt-get install -y --no-install-recommends \
 	&& apt-get clean -y \
 	&& apt-get autoremove -y  \
 	&& apt-get autoclean -y
-COPY .latexmkrc ~/
+COPY .latexmkrc /root
 
 # Install neovim
 RUN apt-get install -y --no-install-recommends software-properties-common \
@@ -67,5 +67,5 @@ RUN pip3 install --upgrade pip \
 	&& pip3 install --no-cache-dir -r requirements.txt \
 	&& rm requirements.txt
 
+RUN sed -i "s/#force_color_prompt=yes/force_color_prompt=yes/g" /root/.bashrc
 WORKDIR /home/mycode
-
