@@ -1,6 +1,6 @@
 version: '3'
 services:
-  my-pyenv:
+  myenv:
     build: .docker
     volumes:
       - "./src:/home/mycode"
