@@ -1,6 +1,6 @@
 version: '3'
 services:
-  vim-jupyter:
+  my-pyenv:
     build: .docker
     volumes:
       - "./src:/home/mycode"
