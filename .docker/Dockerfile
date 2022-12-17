@@ -72,6 +72,7 @@ RUN pip3 install --upgrade pip \
 COPY bashrc.txt .
 RUN cat bashrc.txt >> /root/.bashrc \
 	&& echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc \
-	&& rm bashrc.txt
+	&& rm bashrc.txt \
+	&& echo "set bell-style none" >> ~/.inputrc
 
 WORKDIR /home/mycode
