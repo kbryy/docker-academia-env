@@ -17,6 +17,7 @@ RUN apt-get update \
 	nodejs \
 	npm \
 	curl \
+	bash-completion \
 	&& npm install n -g \
 	&& n stable \
 	&& apt-get remove -y --purge nodejs npm \
@@ -67,5 +68,10 @@ RUN pip3 install --upgrade pip \
 	&& pip3 install --no-cache-dir -r requirements.txt \
 	&& rm requirements.txt
 
-RUN sed -i "s/#force_color_prompt=yes/force_color_prompt=yes/g" /root/.bashrc
+# Setting Bash
+COPY bashrc.txt .
+RUN cat bashrc.txt >> /root/.bashrc \
+	&& echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc \
+	&& rm bashrc.txt
+
 WORKDIR /home/mycode
