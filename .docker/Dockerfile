@@ -69,8 +69,8 @@ RUN pip3 install --upgrade pip \
 	&& rm requirements.txt
 
 # Setting Bash
-COPY .bashrc  ~/.bashrc
-COPY .inputrc ~/.inputrc
+COPY .bashrc  /root/.bashrc
+COPY .inputrc /root/.inputrc
 RUN echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc \
 
 
