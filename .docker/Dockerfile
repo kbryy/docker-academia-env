@@ -71,7 +71,7 @@ RUN pip3 install --upgrade pip \
 # Setting Bash
 COPY .bashrc  /root/.bashrc
 COPY .inputrc /root/.inputrc
-RUN echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc \
+RUN echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc
 
 
 WORKDIR /home/mycode
