@@ -56,7 +56,7 @@ RUN apt-get install -y --no-install-recommends software-properties-common \
 	&& apt-get install -y --no-install-recommends neovim \
 	&& mkdir -p ~/.config/nvim \
 	&& git clone https://github.com/Kobari12/neovim-config.git ~/.config/nvim \
-	&& curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://github.com/tani/vim-jetpack.git \
+	&& curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim \
 	&& mkdir -p ~/.local/share/fonts \
 	&& cd ~/.local/share/fonts \
 	&& curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf \
