@@ -62,7 +62,7 @@ RUN apt-get install -y --no-install-recommends software-properties-common \
 	&& curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf \
 	&& LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/') \
 	&& curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" \
-	&& sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit \
+	&& tar xf lazygit.tar.gz -C /usr/local/bin lazygit \
 	&& rm lazygit.tar.gz
 
 # Install python packages
