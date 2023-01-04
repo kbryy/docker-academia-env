@@ -24,7 +24,7 @@ RUN apt-get update \
 	# clean to reduce image size \
 	&& apt-get clean -y \
 	&& apt-get autoremove -y \
-	&& apt-get autoclean -y 
+	&& apt-get autoclean -y
 
 # Install latex packages
 RUN apt-get install -y --no-install-recommends \
@@ -56,14 +56,10 @@ RUN apt-get install -y --no-install-recommends software-properties-common \
 	&& apt-get install -y --no-install-recommends neovim \
 	&& mkdir -p ~/.config/nvim \
 	&& git clone https://github.com/Kobari12/neovim-config.git ~/.config/nvim \
-	&& curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim \
+   && curl -fLo ~/.confg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
 	&& mkdir -p ~/.local/share/fonts \
 	&& cd ~/.local/share/fonts \
-	&& curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf \
-	&& LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/') \
-	&& curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" \
-	&& sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit \
-	&& rm lazygit.tar.gz
+	&& curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 
 # Install python packages
 COPY requirements.txt .
