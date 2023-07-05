@@ -34,6 +34,10 @@ function my_mkdir(){
 	\mkdir $@ && ls
 }
 
+function jup(){
+   jupyter lab --ip=0.0.0.0 --port=8080 --allow-root --no-browser
+}
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -43,6 +47,7 @@ alias vim='nvim'
 alias vi='vim'
 alias emacs='vim'
 alias nano='vim'
+alias n='vim'
 
 alias cd='my_cd'
 alias mkdir='my_mkdir'

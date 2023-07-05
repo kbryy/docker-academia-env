@@ -53,13 +53,8 @@ COPY .latexmkrc /root
 # Install neovim
 RUN apt-get install -y --no-install-recommends software-properties-common \
 	&& add-apt-repository ppa:neovim-ppa/unstable \
-	&& apt-get install -y --no-install-recommends neovim \
-	&& mkdir -p ~/.config/nvim \
-	&& git clone https://github.com/Kobari12/neovim-config.git ~/.config/nvim \
-   && curl -fLo ~/.confg/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
-	&& mkdir -p ~/.local/share/fonts \
-	&& cd ~/.local/share/fonts \
-	&& curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+	&& apt-get install -y --no-install-recommends neovim  \
+    && git clone https://github.com/kbryy/nvim-files.git ~/.config/nvim
 
 # Install python packages
 COPY requirements.txt .
@@ -68,9 +63,9 @@ RUN pip3 install --upgrade pip \
 	&& rm requirements.txt
 
 # Setting Bash
-COPY .bashrc  /root/.bashrc
+# COPY .bashrc  /root/.bashrc
 COPY .inputrc /root/.inputrc
 RUN echo ". /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc
 
 
-WORKDIR /home/mycode
+WORKDIR /code

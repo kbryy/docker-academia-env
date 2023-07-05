@@ -2,9 +2,14 @@ version: '3'
 services:
   myenv:
     build: .docker
-    volumes:
-      - "../:/home/mycode"
-    Ports:
+    container_name: myenv
+    ports:
       - "8080:8080"
+    image: myenv:ubuntu
+    volumes:
+      # - "~/.config/nvim:/root/.config/nvim"
+      - "~/work/.ghq/github.com/:/code"
+      - ".docker/.bashrc:/root/.bashrc"
     tty: true
-    command: jupyter lab --ip=0.0.0.0 --port=8080 --allow-root --no-browser
+    restart: always
+    # command: jupyter lab --ip=0.0.0.0 --port=8080 --allow-root --no-browser
