@@ -61,6 +61,10 @@ COPY requirements.txt .
 RUN pip3 install --upgrade pip \
 	&& pip3 install --no-cache-dir -r requirements.txt \
 	&& rm requirements.txt
+    
+RUN jupyter notebook --generate-config
+RUN mkdir /root/.jupyter/tmp
+RUN echo "c.FileCheckpoints.checkpoint_dir = '/root/.jupyter/tmp/'" > /root/.jupyter/jupyter_lab_config.py
 
 # Setting Bash
 # COPY .bashrc  /root/.bashrc
